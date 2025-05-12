@@ -19,11 +19,11 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem 10rem;
 }
 
 h1 {
   margin: 0;
+  text-align: center;
 }
 
 p {
@@ -101,6 +101,7 @@ button:hover {
   gap: 2rem;
   margin: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .countryField {
@@ -137,5 +138,9 @@ button:hover {
   #formContainer {
     gap: 1rem;
     justify-content: space-evenly;
+  }
+
+  main {
+    margin: 2rem 10rem;
   }
 }
