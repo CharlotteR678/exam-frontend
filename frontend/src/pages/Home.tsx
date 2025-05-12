@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ADD_COUNTRY, GET_COUNTRIES } from "../api/countries";
@@ -16,8 +16,7 @@ export function HomePage() {
     emoji: "",
   });
 
-  console.log(countries);
-
+  const [error, setError] = useState<string | ApolloError>("");
   const formInputs = [
     { name: "Name", key: "name", inputType: "text" },
     { name: "Emoji", key: "emoji", inputType: "text" },
@@ -26,6 +25,13 @@ export function HomePage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (
+      formData.code.length === 0 ||
+      formData.name.length === 0 ||
+      formData.emoji.length === 0
+    ) {
+      return setError("Tous les champs doivent être correctement remplis");
+    }
     try {
       await addCountry({
         variables: {
@@ -36,7 +42,8 @@ export function HomePage() {
           },
         },
       });
-    } catch (err) {
+    } catch (err: any) {
+      setError(err);
       console.error("Erreur lors de l'ajout :", err);
     }
   };
@@ -67,6 +74,7 @@ export function HomePage() {
         </div>
         <button type="submit">Add</button>
       </form>
+      <p>{error && error instanceof ApolloError ? error.message : error}</p>
       <section id="countriesSection">
         {countries.map((country) => (
           <Link
