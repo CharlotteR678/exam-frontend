@@ -45,27 +45,29 @@ export function HomePage() {
 
   return (
     <>
-      <form className="countryForm" onSubmit={handleSubmit}>
-        {formInputs.map((input, index) => (
-          <div key={index} className="formField">
-            <label htmlFor={input.name}>{input.name}</label>
-            <input
-              type={input.key}
-              id={input.name}
-              name={input.name}
-              value={formData[input.key as keyof typeof formData]}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  [input.key]: e.target.value,
-                }))
-              }
-            />
-          </div>
-        ))}
+      <form id="countryForm" onSubmit={handleSubmit}>
+        <div id="formContainer">
+          {formInputs.map((input, index) => (
+            <div key={index} className="formField">
+              <label htmlFor={input.name}>{input.name}</label>
+              <input
+                type={input.key}
+                id={input.name}
+                name={input.name}
+                value={formData[input.key as keyof typeof formData]}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    [input.key]: e.target.value,
+                  }))
+                }
+              />
+            </div>
+          ))}
+        </div>
         <button type="submit">Add</button>
       </form>
-      <section className="countriesSection">
+      <section id="countriesSection">
         {countries.map((country) => (
           <Link
             to={`/country/${country.code}`}

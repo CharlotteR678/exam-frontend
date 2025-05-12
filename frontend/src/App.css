@@ -19,7 +19,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem 5rem;
+  margin: 2rem 10rem;
 }
 
 h1 {
@@ -31,12 +31,15 @@ p {
 }
 
 button {
-  background-color: pink;
+  background-color: #f7146b;
   padding: 0.8em;
   color: white;
   border: none;
-  border-radius: 2px;
+  border-radius: 3px;
   cursor: pointer;
+  height: 65px;
+  width: 65px;
+  font-weight: bold;
 }
 
 button:hover {
@@ -44,7 +47,7 @@ button:hover {
 }
 
 .header {
-  background-color: pink;
+  background-color: #f7146b;
   color: white;
   display: flex;
   justify-content: center;
@@ -59,22 +62,31 @@ button:hover {
   color: inherit;
 }
 
-.countryForm {
+#countryForm {
   display: flex;
   gap: 0.5rem;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid black;
+  border: 2px solid #e1e1e1;
   border-radius: 4px;
-  padding: 2rem;
-  background-color: #807a7a;
+  padding: 1rem;
+  background-color: #f1f1f1;
   flex-wrap: wrap;
   width: 100%;
 }
 
+#formContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
 .formField>input {
   padding: 0.8em 0.2em;
-  border: 1px solid black;
+  border: 3px solid #e1e1e1;
   border-radius: 4px;
 }
 
@@ -84,7 +96,7 @@ button:hover {
   gap: 0.4rem;
 }
 
-.countriesSection {
+#countriesSection {
   display: flex;
   gap: 2rem;
   margin: 2rem;
@@ -92,7 +104,7 @@ button:hover {
 }
 
 .countryField {
-  border: 1px solid black;
+  border: 2px solid #e1e1e1;
   padding: 1rem;
   border-radius: 5px;
   width: 95px;
@@ -104,7 +116,7 @@ button:hover {
 
 }
 
-.countriesSection>a {
+#countriesSection>a {
   text-decoration: none;
   color: inherit;
 }
@@ -119,4 +131,11 @@ button:hover {
   gap: 1rem;
   justify-items: center;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  #formContainer {
+    gap: 1rem;
+    justify-content: space-evenly;
+  }
 }
