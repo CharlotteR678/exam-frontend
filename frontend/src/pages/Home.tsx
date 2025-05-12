@@ -58,7 +58,7 @@ export function HomePage() {
             <div key={index} className="formField">
               <label htmlFor={input.name}>{input.name}</label>
               <input
-                type={input.key}
+                type={input.inputType}
                 id={input.name}
                 name={input.name}
                 value={formData[input.key as keyof typeof formData]}
